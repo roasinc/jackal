@@ -91,7 +91,7 @@ def generate_launch_description():
         # Joint State Broadcaster
         Node(
             package='controller_manager',
-            executable='spawner.py',
+            executable='spawner',
             arguments=['joint_state_broadcaster'],
             output='screen',
         ),
@@ -99,7 +99,7 @@ def generate_launch_description():
         # Velocity Controller
         Node(
             package='controller_manager',
-            executable='spawner.py',
+            executable='spawner',
             arguments=['jackal_velocity_controller'],
             output='screen',
         )
@@ -108,6 +108,6 @@ def generate_launch_description():
     ld = LaunchDescription()
     ld.add_action(robot_description_command_arg)
     ld.add_action(is_sim_arg)
-    ld.add_action(localization_group_action)
+    # ld.add_action(localization_group_action)
     ld.add_action(control_group_action)
     return ld
